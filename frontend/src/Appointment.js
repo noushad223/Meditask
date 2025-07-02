@@ -120,6 +120,13 @@ export class Appointment extends Component {
     
   }
 
+  viewClick = (app) => {
+    this.setState({ viewAppointment: app }, () => {
+      const viewModal = new window.bootstrap.Modal(document.getElementById('viewModal'));
+      viewModal.show();
+    });
+  };
+
 
 
 
@@ -130,7 +137,9 @@ export class Appointment extends Component {
       patient_name,
       doctor_name,
       date,
-      time
+      time,
+      viewAppointment,
+      viewModalTitle
     } = this.state;
 
     return (
@@ -162,6 +171,11 @@ export class Appointment extends Component {
                 <td>{app.date}</td>
                 <td>{app.time}</td>
                 <td>
+                <button type="button"
+                  className='btn btn-sm btn-light'
+                  onClick={()=>this.viewClick(app)}>
+                    View
+                  </button>
                   <button type="button"
                     className="btn btn-sm btn-light"
                     data-bs-toggle="modal"
@@ -223,6 +237,35 @@ export class Appointment extends Component {
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
                   Close
                 </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div className="modal fade" id="viewModal" tabIndex="-1" aria-hidden="true">
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+
+              <div className="modal-header">
+                <h5 className="modal-title">{viewModalTitle}</h5>
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+              <div className="modal-body">
+                {viewAppointment ? (
+                  <>
+                    <p><strong>Patient Name:</strong> {viewAppointment.patient_name}</p>
+                    <p><strong>Doctor Name:</strong> {viewAppointment.doctor_name}</p>
+                    <p><strong>Date:</strong> {viewAppointment.date}</p>
+                    <p><strong>Time:</strong> {viewAppointment.time}</p>
+                  </>
+                ) : (
+                  <p>Loading...</p>
+                )}
+              </div>
+
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               </div>
 
             </div>

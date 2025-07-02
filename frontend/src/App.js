@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
-import { Dashboard } from './Dashboard';
 import { Appointment } from './Appointment';
 import { Feedback } from './Feedback';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -27,9 +26,6 @@ function App() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/dashboard">Dashboard</NavLink>
-              </li>
-              <li className="nav-item">
                 <NavLink className="nav-link" to="/appointment">Appointment</NavLink>
               </li>
               <li className="nav-item">
@@ -42,7 +38,6 @@ function App() {
 
       <div className="container mt-4">
         <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/appointment" element={<Appointment />} />
           <Route path="/feedback" element={<Feedback />} />
         </Routes>
