@@ -1,34 +1,64 @@
-#Setup instructions 
+## Setup Instructions
 
-#Prerequisites
--> Python 3.10+
+### Prerequisites
+- Python **3.10+**
+- Node.js & npm (for frontend)
 
-#Step 1. Clone repository
--> cd meditask
+---
 
-#Step 2. Setup virtual environment
--> python -m venv venv
-#Windows
--> venv/Scripts/activate
-#Linux
--> source venv/bin/activate
+### 1. Clone the Repository
 
-#Step 3. Install dependencies and run migration
--> pip install -r requirements.txt
--> python manage.py migrate
+```bash
+git clone https://github.com/noushad223/Meditask
+cd meditask
+```
 
-#Step 4. Run server
--> python manage.py runserver
+---
 
-#Step 5. Run frontend
--> cd frontend
--> npm install
--> npm start
+### 2. Set Up Virtual Environment
 
-This will run the app on http://localhost:3000
+```bash
+python -m venv venv
+```
 
+**Activate the virtual environment:**
 
+- **Windows:**
+  ```bash
+  venv\Scripts\activate
+  ```
+- **Linux/macOS:**
+  ```bash
+  source venv/bin/activate
+  ```
 
+---
 
+### 3. Install Dependencies & Run Migrations
 
+```bash
+pip install -r requirements.txt
+python manage.py migrate
+```
 
+---
+
+### 4. Run the Backend Server
+
+```bash
+python manage.py runserver
+```
+
+---
+
+### 5. Run the Frontend
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+The app will run at [http://localhost:3000](http://localhost:3000)
+
+---
